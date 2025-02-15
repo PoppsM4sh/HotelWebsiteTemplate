@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B&B Facility</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="logo">B&B Logo</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#booking">Book Rooms</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="hero-section">
+    <h1>Welcome to Our B&B</h1>
+    <p>Experience comfort and relaxation in our beautiful facility.</p>
+    <button onclick="window.location.href='#booking'">Book a Room</button>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking">
+    <h2>Book Your Stay</h2>
+
+    <!-- Room Grid -->
+    <div class="room-grid">
+      <!-- Lite Room -->
+      <div class="room-card">
+        <h3>Standard Room - R1 050/night</h3>
+        <div class="image-slider">
+          <img src="images/single.jpg" alt="Lite Room Image 1">
+          <img src="images/singleBathroom.jpg" alt="Lite Room Image 2">
+          <img src="images/singleLiving.jpeg" alt="Lite Room Image 3">
+        </div>
+        <p><strong>Simple Elegance:</strong>Experience a comfortable and stylish stay in our Standard Rooms. Perfect for solo travelers or couples seeking a cozy retreat.</p>
+        <button onclick="bookRoom('Lite Room')">Select Room</button>
+      </div>
+
+      <!-- Standard Room -->
+      <div class="room-card">
+        <h3>Deluxe Room - R1 750/night</h3>
+        <div class="image-slider">
+          <img src="images/bedroom1.jpg" alt="Standard Room Image 1">
+          <img src="images/standardBathroom.jpg" alt="Standard Room Image 2">
+          <img src="images/standardLiving.jpeg" alt="Standard Room Image 3">
+        </div>
+        <p><strong>Luxury Redefined:</strong>  Our Suites offer an unparalleled level of luxury and comfort. Enjoy spacious living areas, opulent furnishings, and breathtaking views.</p>
+        <button onclick="bookRoom('Standard Room')">Select Room</button>
+      </div>
+
+      <!-- VIP Room -->
+      <div class="room-card">
+        <h3>Suite - R3 000/night</h3>
+        <div class="image-slider">
+          <img src="images/kingBed.jpg" alt="VIP Room Image 1">
+          <img src="images/kingBathroom.jpg" alt="VIP Room Image 2">
+          <img src="images/kingLivingRoom.jpg" alt="VIP Room Image 3">
+        </div>
+        <p><strong>Description:</strong> Experience luxury with a king-sized bed, two-door fridge, private shower, and bathtub for ultimate relaxation.</p>
+        <ul>
+        <button onclick="bookRoom('VIP Room')">Select Room</button>
+      </div>
+    </div>
+
+    <!-- Booking Form -->
+    <form id="booking-form" style="display: none;">
+      <h3>Confirm Your Booking</h3>
+      <label for="check-in">Check-In Date:</label>
+      <input type="date" id="check-in" name="check-in" min="" required>
+
+      <label for="check-out">Check-Out Date:</label>
+      <input type="date" id="check-out" name="check-out" min="" required>
+
+      <label for="room-type">Room Type:</label>
+      <select id="room-type" name="room-type" required>
+        <option value="">Select a Room Type</option>
+        <option value="Lite Room">Standard Room - R800/night</option>
+        <option value="Standard Room">Deluxe Room - R1250/night</option>
+        <option value="VIP Room">Suite - R2 000/night</option>
+      </select>
+
+      <label for="num-rooms">Number of Rooms:</label>
+      <input type="number" id="num-rooms" name="num-rooms" min="1" value="1" required>
+
+      <button type="button" onclick="confirmBooking()">Proceed to Contact Details</button>
+    </form>
+
+    <!-- Contact Details Form -->
+    <form id="contact-form" style="display: none;">
+      <h3>Personal Contact Details</h3>
+      <label for="full-name">Full Name:</label>
+      <input type="text" id="full-name" name="full-name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <button type="button" onclick="submitBooking()">Submit Booking</button>
+    </form>
+  </section>
+
+  <!-- Facilities Section -->
+  <section id="facilities">
+    <h2>Our Facilities</h2>
+    <p>Explore our luxurious amenities and services.</p>
+
+    <!-- Facilities Slider -->
+    <div class="facilities-slider">
+      <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
+
+      <div class="slide-container">
+        <img class="slide" src="images/bedroom1.jpg" alt="Bedroom">
+        <img class="slide" src="images/landingPage.jpg" alt="Landing Page">
+        <img class="slide" src="images/landingPage.jpg" alt="Landing Page">
+      </div>
+
+      <div class="slide-descriptions">
+        <p id="slide-desc-1" class="active">A cozy bedroom with a king-sized bed and elegant decor.</p>
+        <p id="slide-desc-2">A stunning view of our facility's entrance and lush greenery.</p>
+        <p id="slide-desc-3">Experience luxury in our beautifully designed common areas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@bnbfacility.com</p>
+    <p>Phone: +123 456 7890</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
